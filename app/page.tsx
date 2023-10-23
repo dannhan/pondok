@@ -6,19 +6,19 @@ import Header from "./components/Header";
 import Card from "./components/Card";
 
 export default async function Home() {
-  // const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<Post[]>([]);
 
-  // useEffect(() => {
-  //   // client
-  //   //   .fetch(`*[_type == "post"] | order(_createdAt desc)`)
-  //   getPosts()
-  //     .then((data) => setPosts(data))
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }, []);
+  useEffect(() => {
+    // client
+    //   .fetch(`*[_type == "post"] | order(_createdAt desc)`)
+    getPosts()
+      .then((data) => setPosts(data))
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
-  const posts = await getPosts();
+  // const posts = await getPosts();
 
   return (
     <>
