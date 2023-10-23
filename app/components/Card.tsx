@@ -9,7 +9,8 @@ interface Props {
 export default function Card({ post }: Props) {
   return (
     <a
-      href={"post/" + post.slug.current}
+      href={"posts/" + post.slug.current}
+      // href="/"
       className="relative top-0 flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-75 ease-in-out hover:-top-2 hover:shadow-xl"
       data-test="article-card"
     >
@@ -25,7 +26,7 @@ export default function Card({ post }: Props) {
         height={192}
         quality={80}
         priority
-        className="object-cover w-full [aspect-ratio:6/4]"
+        className="object-cover w-full [aspect-ratio:15/8]"
       />
 
       <div className="flex gap-4 flex-col justify-between grow px-8 py-6">

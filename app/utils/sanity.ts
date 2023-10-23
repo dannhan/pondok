@@ -24,8 +24,13 @@ export const client = createClient({
 });
 
 export async function getPosts(): Promise<Post[]> {
-
   return await client.fetch(`*[_type == "post"] | order(_createdAt desc)`)
+}
+
+export async function getPost(slug: string): Promise<Post> {
+  return await client.fetch(`*[_type == "post" && slug.current == $slug][0]`,{
+    slug,
+  })
 }
 
 // export async function getPost(slug: string): Promise<Post> {
