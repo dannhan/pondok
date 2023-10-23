@@ -1,11 +1,11 @@
-// "use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import { Post, client, getPosts } from "./utils/sanity";
 import Header from "./components/Header";
 import Card from "./components/Card";
 
-export default async function Home() {
+export default function Home() {
   const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
