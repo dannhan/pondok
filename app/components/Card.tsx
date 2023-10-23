@@ -1,6 +1,6 @@
 import type { Post } from "../utils/sanity";
 import { formatDate } from "../utils";
-// import { urlFor } from "../utils/image";
+import { urlFor } from "../utils/image";
 import Image from "next/image";
 interface Props {
   post: Post;
@@ -14,16 +14,16 @@ export default function Card({ post }: Props) {
       data-test="article-card"
     >
       <Image
-        // src={
-        //   post.mainImage
-        //     ? urlFor(post.mainImage).width(500).height(300).url()
-        //     : "/placeholder.png"
-        // }
-        src="/placeholder.png"
+        src={
+          post.mainImage
+            ? urlFor(post.mainImage).width(500).height(300).url()
+            : "/placeholder.png"
+        }
+        // src="/placeholder.png"
         alt={post.title || ""}
         width={360}
         height={192}
-        quality={20}
+        quality={80}
         priority
         className="object-cover w-full [aspect-ratio:6/4]"
       />
