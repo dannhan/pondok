@@ -2,6 +2,7 @@ import type { ImageAsset, Slug } from "@sanity/types";
 import type { PortableTextBlock } from "@portabletext/types";
 import { createClient } from "next-sanity";
 
+let eek = 30;
 export interface Post {
   _type: "post";
   _createdAt: string;
@@ -20,13 +21,17 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: true,
+  useCdn: false,
 });
 
 export async function getPosts(): Promise<Post[]> {
-  return await client.fetch(
-    `*[_type == "post"] | order(_createdAt desc)`
-  );
+  eek = eek > 50 ? 30 : eek + 1;
+
+  return await client.fetch(`*[_type == "post"] | order(_createdAt desc)`, {
+    next: {
+      revalidate: eek,
+    },
+  });
 }
 
 // export async function getPost(slug: string): Promise<Post> {

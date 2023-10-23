@@ -23,6 +23,8 @@ export default function Card({ post }: Props) {
         alt={post.title || ""}
         width={360}
         height={192}
+        quality={20}
+        priority
         className="object-cover w-full [aspect-ratio:6/4]"
       />
 
